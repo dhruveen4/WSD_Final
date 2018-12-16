@@ -39,8 +39,6 @@
                                 @empty
                                     There are no questions to view, click to create a question.
                                 @endforelse
-
-
                             </div>
 
                         </div>
