@@ -16,15 +16,22 @@ class RegisterTest extends DuskTestCase
     public function testRegister()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('http://localhost:8000')
-                ->assertSee('Laravel')
+            $browser->visit('/register')
+               ->assertSee('Laravel')
                 ->clickLink('Register')
-                ->type('email', 'dhruveen@gmkjhla.com')
-                ->type('password', 'qwerty')
-                ->type('password_confirmation', 'qwerty')
+                ->type('email', 'abc12@gmail.com')
+                ->type('password', 'abc12123')
+                ->type('password_confirmation', 'abc12123')
                 ->press('Register')
-                ->assertSee('Home');
-
+                ->assertSee('Home')
+                ->clickLink('My Account')
+                ->clickLink('Create Profile')
+                ->assertSee('My Profile')
+                ->type('fname','Raj')
+                ->type('lname','Andrew')
+                ->type('body','I am a student')
+                ->press('Save')
+                ->assertSee('Profile Created');
 
         });
     }
